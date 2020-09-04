@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button } from '@material-ui/core';
+
+import Posts from './components/Posts/Posts';
 
 function App() {
-  return <Button color='primary'>Hello World</Button>;
+  return <Posts></Posts>;
 }
 
 export default App;
