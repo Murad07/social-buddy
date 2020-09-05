@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -16,8 +17,8 @@ const useStyles = makeStyles({
   },
 });
 
-const SinglePost = (props) => {
-  const { title, body } = props.post;
+const Post = (props) => {
+  const { id, title, body } = props.post;
 
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
@@ -34,10 +35,14 @@ const SinglePost = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size='small'>See More</Button>
+        {props.homePage && (
+          <Link to={`/postDetail/${id}`}>
+            <Button size='small'>See More</Button>
+          </Link>
+        )}
       </CardActions>
     </Card>
   );
 };
 
-export default SinglePost;
+export default Post;
