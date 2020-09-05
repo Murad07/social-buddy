@@ -20,12 +20,13 @@ const useStyles = makeStyles((theme) => ({
 const SingleComment = (props) => {
   const classes = useStyles();
 
-  const { name, email, body, id, postId } = props.comment;
+  const { name, email, body, id } = props.comment;
 
   //   generate profile image from 50 image of randomuser.me api
-  let imgId = id + postId;
+
+  let imgId = id;
   if (imgId > 50) {
-    imgId -= 50;
+    imgId = Math.floor(Math.random() * 50) + 1;
   }
 
   return (
