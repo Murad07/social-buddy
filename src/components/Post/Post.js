@@ -13,8 +13,8 @@ const useStyles = makeStyles({
     minWidth: 275,
     marginTop: 10,
   },
-  title: {
-    fontSize: 16,
+  postTitle: {
+    fontSize: 20,
     color: '#2E4053',
   },
 });
@@ -23,12 +23,11 @@ const Post = (props) => {
   const { id, title, body } = props.post;
 
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} gutterBottom>
+        <Typography className={classes.postTitle} gutterBottom>
           {title}
         </Typography>
 
@@ -36,18 +35,19 @@ const Post = (props) => {
           {body}
         </Typography>
       </CardContent>
+
       <CardActions>
         {props.homePage && (
-          <Button variant='contained' color='primary'>
-            <Link
-              style={{ color: 'inherit', textDecoration: 'inherit' }}
-              to={`/postDetail/${id}`}
-            >
+          <Link
+            style={{ color: 'inherit', textDecoration: 'inherit' }}
+            to={`/postDetail/${id}`}
+          >
+            <Button variant='contained' color='primary'>
               See More
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         )}
-        {!props.homePage && <Comments key={id} id={id}></Comments>}
+        {!props.homePage && <Comments commentId={id}></Comments>}
       </CardActions>
     </Card>
   );

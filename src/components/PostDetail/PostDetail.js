@@ -10,11 +10,11 @@ const PostDetail = () => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((res) => res.json())
       .then((data) => setPost(data));
-  }, []);
+  }, [id]);
 
   return (
     <div>
-      <Post key={id} post={post} homePage={false}></Post>
+      <Post key={post.id} post={post} homePage={false}></Post>
     </div>
   );
 };
