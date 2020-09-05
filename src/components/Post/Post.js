@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import Comments from '../Comments/Comments';
 
 const useStyles = makeStyles({
   root: {
@@ -40,6 +41,7 @@ const Post = (props) => {
             <Button size='small'>See More</Button>
           </Link>
         )}
+        {!props.homePage && <Comments key={id} id={id}></Comments>}
       </CardActions>
     </Card>
   );
