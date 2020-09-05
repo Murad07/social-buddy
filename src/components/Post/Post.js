@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 16,
+    color: '#2E4053',
   },
 });
 
@@ -37,9 +38,14 @@ const Post = (props) => {
       </CardContent>
       <CardActions>
         {props.homePage && (
-          <Link to={`/postDetail/${id}`}>
-            <Button size='small'>See More</Button>
-          </Link>
+          <Button variant='contained' color='primary'>
+            <Link
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+              to={`/postDetail/${id}`}
+            >
+              See More
+            </Link>
+          </Button>
         )}
         {!props.homePage && <Comments key={id} id={id}></Comments>}
       </CardActions>
