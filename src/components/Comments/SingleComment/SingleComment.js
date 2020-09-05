@@ -29,14 +29,23 @@ const useStyles = makeStyles((theme) => ({
 const SingleComment = (props) => {
   const classes = useStyles();
 
-  const { name, email, body } = props.comment;
+  const { name, email, body, id, postId } = props.comment;
+
+  //   generate profile image from 50 image of randomuser.me api
+  let imgId = id + postId;
+  if (imgId > 50) {
+    imgId -= 50;
+  }
 
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label='recipe' className={classes.avatar}>
-            R
+            <img
+              src={`https://randomuser.me/api/portraits/med/women/${imgId}.jpg`}
+              alt=''
+            />
           </Avatar>
         }
         //   image='/static/images/cards/paella.jpg'
